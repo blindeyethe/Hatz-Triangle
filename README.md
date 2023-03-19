@@ -1,0 +1,2 @@
+# Hatz-Triangle
+Sierpinski Triangle
