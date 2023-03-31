@@ -70,7 +70,7 @@ public:
 private:
 	Vector2D _bounds{};
 
-	std::deque<Triangle> _triangles{};
+	std::queue<Triangle> _triangles{};
 
 public:
 	bool OnUserCreate() override
@@ -80,9 +80,9 @@ public:
 							   _bounds.x, _bounds.y };
 
 		auto* middleTriangles = mainTriangle.GetMiddleTriangles();
-		_triangles.push_back(middleTriangles[0]);
-		_triangles.push_back(middleTriangles[1]);
-		_triangles.push_back(middleTriangles[2]);
+		_triangles.push(middleTriangles[0]);
+		_triangles.push(middleTriangles[1]);
+		_triangles.push(middleTriangles[2]);
 
 		return true;
 	}
@@ -92,15 +92,15 @@ public:
 		int length = _triangles.size();
 		while(length)
 		{
-			auto& triangle = _triangles[0];
+			auto& triangle = _triangles.front();
 			triangle.DrawTriangle(this);
 
 			auto* middleTriangles = triangle.GetMiddleTriangles();
-			_triangles.push_back(middleTriangles[0]);
-			_triangles.push_back(middleTriangles[1]);
-			_triangles.push_back(middleTriangles[2]);
+			_triangles.push(middleTriangles[0]);
+			_triangles.push(middleTriangles[1]);
+			_triangles.push(middleTriangles[2]);
 
-			_triangles.pop_front(); length--;
+			_triangles.pop(); length--;
 		}
 
 		return true;
