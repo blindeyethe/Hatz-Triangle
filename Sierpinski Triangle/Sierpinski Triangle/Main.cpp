@@ -62,22 +62,22 @@ public:
 class HatzTrinagle : public olc::PixelGameEngine
 {
 public:
-	HatzTrinagle(const Vector2D& bounds) : _bounds(bounds)
+	HatzTrinagle(Vector2D* bounds) : _bounds(bounds)
 	{
 		sAppName = "Hatz-Triangle";
 	}
 
 private:
-	Vector2D _bounds{};
+	Vector2D* _bounds;
 
 	std::queue<Triangle> _triangles{};
 
 public:
 	bool OnUserCreate() override
 	{
-		Triangle mainTriangle{ _bounds.x / 2, 0,
-							   0, _bounds.y,
-							   _bounds.x, _bounds.y };
+		Triangle mainTriangle{ _bounds->x / 2, 0,
+							   0, _bounds->y,
+							   _bounds->x, _bounds->y };
 
 		auto* middleTriangles = mainTriangle.GetMiddleTriangles();
 		_triangles.push(middleTriangles[0]);
@@ -117,7 +117,7 @@ int main()
 	while (bounds.x > screen.x - 1 || bounds.y > screen.y - 1);
 	*/
 	
-	HatzTrinagle window(bounds);
+	HatzTrinagle window(&bounds);
 	if (window.Construct(screen.x, screen.y, 1, 1, true))
 		window.Start();
 
