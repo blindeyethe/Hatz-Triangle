@@ -5,4 +5,11 @@ Status: Finished
 
 [Download Link](https://github.com/blindeyethe/Hatz-Triangle/raw/main/Sierpinski%20Triangle/Release/Sierpinski%20Triangle.exe)
 
-https://user-images.githubusercontent.com/62220844/229163163-79d80b08-2337-49cc-b4f1-4eef6e225e09.mp4
+Version 1:
+
+https://user-images.githubusercontent.com/62220844/230884972-5896283f-9da2-4261-9723-d8a6585a2a27.mp4
+
+<br></br>
+Version 2:
+
+https://user-images.githubusercontent.com/62220844/230885379-bd966f35-9176-4479-9403-5f6cb88cb642.mp4
